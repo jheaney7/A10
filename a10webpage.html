@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My First Web Page</title>
+    <style>
+        p {
+            font-style: bold;
+            color: darkred;
+            font-size:130%
+        }
+        
+        h1.title {
+            text-align: center;
+            color: #333333;
+            font-size: 225%;
+        }
+
+        body {
+            background-color: lightblue;
+        }
+        
+        p.cookieCSS {
+            font-style: bold;
+            color: darkgreen;
+            font-size: 145%;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 class="title">Welcome to My First Web Page</h1>
+    <p>Username: jheaney7</p>
+    <p>Course Number: IS117-003</p>
+    <p>Course Name: Introduction to Website Development</p>
+    <p>Section: 003</p>
+
+    <p class="cookieCSS" id=cookie> Your Cookie: </p>
+
+    Enter your name: <input type="text" id="name">
+    <button onclick="setCookie()">Set your cookie</button>
+
+    <script>
+        function setCookie() {
+            let name = document.getElementById('name').value;
+            document.cookie ="name=" + name;
+        }
+
+        function getCookie() {
+            cookies = document.cookie.split(';');
+            console.log(cookies);
+            for (let i = 0; i < cookies.length; i++){
+                console.log(cookies[i]);
+                if (cookies[i].charAt(1) == 'n'){
+                    nameCookie = cookies[i];
+                    document.getElementById("cookie").innerText = "Your Cookie: " + (nameCookie);
+                }
+                continue;
+            }
+        }
+
+        getCookie();
+    </script>
+</body>
+</html>
